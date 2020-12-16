@@ -1,0 +1,109 @@
+<div class="container-fluid p-8">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalCenter">
+                Chats
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Usuarios para chatear</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm ">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Opcion</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each user}}
+                                        <tr>
+                                            <td scope="row">{{name}}</td>
+                                            <td>
+                                                <a href="../chat/{{id}}" class="btn btn col-8">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {{else}}
+                                        <div class="col-md-4 mx-auto">
+                                            <div class="card card-body text-center">
+                                                <p>Aún no hay usuarios </p>
+                                                <a id="reload" href="./">Recargar</a></p>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mx.auto">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p><b>Posts</b></p>
+                    <form action="post/add/" method="post">
+
+                        <div class="form-group">
+                            <label for="name">Texto de la públicación</label>
+                            <input required type="text" class="form-control" id="name" name="name" value=""
+                                placeholder="Ingrese el texto del post">
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <button class="btn btn-primary" role="button">
+                                    Generar &raquo;
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        {{#each post}}
+        <div class="col-md-4 mx.auto">
+            <div class="card  mb-3">
+                <div class="card-body">
+                    <p><b>{{name}} </b></p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>Aún no hay Post registrados</p>
+                <a id="reload" href="./">Recargar</a></p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>
